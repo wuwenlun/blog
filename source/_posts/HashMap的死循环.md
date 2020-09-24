@@ -148,11 +148,11 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 以上是节点移动的相关逻辑。
 
-![img](1.png)
+![img](https://gitee.com/wuwenlun/img-bed/raw/master/img/20200924150838.png)
 
 插入第4个节点时，发生rehash，假设现在有两个线程同时进行，线程1和线程2，两个线程都会新建新的数组。
 
-![img](2.png)
+![img](https://gitee.com/wuwenlun/img-bed/raw/master/img/20200924150848.png)
 
 假设 **线程2** 在执行到`Entry<K,V> next = e.next;`之后，cpu时间片用完了，这时变量e指向节点a，变量next指向节点b。
 
@@ -160,19 +160,19 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 第一步，移动节点a
 
-![img](3.png)
+![img](https://gitee.com/wuwenlun/img-bed/raw/master/img/20200924151112.png)
 
 第二步，移动节点b
 
-![img](4.png)
+![img](https://gitee.com/wuwenlun/img-bed/raw/master/img/20200924151123.png)
 
 注意，这里的顺序是反过来的，继续移动节点c
 
-![img](5.png)
+![img](https://gitee.com/wuwenlun/img-bed/raw/master/img/20200924151136.png)
 
 这个时候 **线程1** 的时间片用完，内部的table还没有设置成新的newTable， **线程2** 开始执行，这时内部的引用关系如下：
 
-![img](6.png)
+![img](https://gitee.com/wuwenlun/img-bed/raw/master/img/20200924151323.png)
 
 这时，在 **线程2** 中，变量e指向节点a，变量next指向节点b，开始执行循环体的剩余逻辑。
 
@@ -188,11 +188,11 @@ e = next;
 
 执行之后的引用关系如下图
 
-![img](7.png)
+![img](https://gitee.com/wuwenlun/img-bed/raw/master/img/20200924151336.png)
 
 执行后，变量e指向节点b，因为e不是null，则继续执行循环体，执行后的引用关系
 
-![img](8.png)
+![img](https://gitee.com/wuwenlun/img-bed/raw/master/img/20200924151345.png)
 
 变量e又重新指回节点a，只能继续执行循环体，这里仔细分析下：
  1、执行完`Entry<K,V> next = e.next;`，目前节点a没有next，所以变量next指向null；
@@ -202,7 +202,7 @@ e = next;
 
 所以最终的引用关系是这样的：
 
-![img](9.png)
+![img](https://gitee.com/wuwenlun/img-bed/raw/master/img/20200924151356.png)
 
 节点a和b互相引用，形成了一个环，当在数组该位置get寻找对应的key时，就发生了死循环。
 
