@@ -7,6 +7,12 @@ tags:
 - Python
 ---
 
+将Python项目文件打包到无法联网的主机上部署执行
+
+![](https://gitee.com/wuwenlun/img-bed/raw/master/img/20201028143859.png)
+
+<!-- more -->
+
 ### 前言
 
 最近遇到了一个场景：需要将Python项目文件打包到无法联网的主机上部署执行，本篇文章记录针对于该场景的处理方案。
@@ -18,8 +24,6 @@ tags:
 目标主机（无法联网）：需安装和源主机相同的Python版本和pip3，部署执行项目文件
 
 主机系统为centos，Python版本为3.5.2，通过虚拟环境+pip进行迁移
-
-<!-- more -->
 
 ### 目标主机离线安装Python及pip3
 

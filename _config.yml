@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 假如时间可以重来
-subtitle: '记录生活，记录你'
-description: ''
+title: 科学尽头是神学
+subtitle: '于桃子，我爱你'
+description: '宇宙的尽头到底是什么'
 keywords:
-author: wuwenlun
+author: wu
 language: zh-CN
 timezone: ''
 
@@ -113,3 +113,7 @@ deploy:
   type: git
   repo: https://github.com/wuwenlun/wuwenlun.github.io.git
   branch: master
+  
+# 音乐播放器  
+aplayer:
+  meting: true

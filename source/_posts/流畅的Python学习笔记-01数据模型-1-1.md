@@ -7,11 +7,15 @@ tags:
 - 学习笔记
 ---
 
-### 1.1 一摞Python风格的纸牌
+第一章第一节：一摞Python风格的纸牌
 
-下面这段程序是用来构建一副扑克牌，带红星、黑桃、方块、梅花的`23456789JQKA`牌，共`52`张
+![](https://gitee.com/wuwenlun/img-bed/raw/master/img/20201028144038.png)
 
 <!-- more -->
+
+### 一摞Python风格的纸牌
+
+下面这段程序是用来构建一副扑克牌，带红星、黑桃、方块、梅花的`23456789JQKA`牌，共`52`张
 
 ```python
 import collections
