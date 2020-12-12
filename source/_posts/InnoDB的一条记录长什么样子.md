@@ -2,9 +2,9 @@
 title: InnoDB的一条记录长什么样子
 date: 2020-09-24 15:36:26
 categories:
-- [MySql, InnoDB]
+- [MySQL, InnoDB]
 tags:
-- MySql
+- MySQL
 - InnoDB
 ---
 

@@ -2,9 +2,9 @@
 title: InnoDB一棵B+树可以存放多少行数据
 date: 2020-09-24 16:15:34
 categories:
-- [MySql, InnoDB]
+- [MySQL, InnoDB]
 tags:
-- MySql
+- MySQL
 - InnoDB
 ---
 InnoDB一棵`B+`树可以存放多少行数据
